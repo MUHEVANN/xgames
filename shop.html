@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Remix Icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
+      @layer utilities {
+        .container {
+          @apply md:max-w-[1150] lg:max-w-[1300px]  mx-auto lg:px-[2rem] 2xl:p-0  px-[1rem];
+        }
+        img {
+          @apply block h-auto max-w-[100%];
+        }
+        * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: "Poppins", sans-serif;
+          /* scroll-behavior: smooth; */
+        }
+
+        .nav__link {
+          @apply md:px-3 lg:px-5  py-2 transition-all duration-300 font-light text-[15px];
+        }
+        .nav__link:hover,
+        .active {
+          @apply rounded-full bg-blue-500 px-5;
+        }
+
+        .show-menu {
+          @apply top-0;
+        }
+
+        .bg-red {
+          @apply bg-[#ee626b];
+        }
+
+        .btn__link {
+          @apply px-4 py-2 uppercase bg-gray-200 font-semibold text-[13px] md:text-[16px] rounded-full transition-all ease-in-out duration-300;
+        }
+        .btn__link .active,
+        .btn__link:hover {
+          @apply bg-red text-white;
+        }
+        .trending__card {
+          @apply bg-gray-200 rounded-[25px] relative;
+        }
+
+        .trending__card:hover .trending__shop {
+          @apply bg-blue-600;
+        }
+        .trending__card:hover div h3 {
+          @apply text-blue-600;
+        }
+        .trending__card:hover {
+          @apply cursor-pointer;
+        }
+        .trending__card em {
+          text-decoration: line-through;
+          font-style: normal;
+          font-size: 14px;
+        }
+        .trending__shop {
+          @apply absolute right-6 bottom-6 bg-red h-[40px] text-[20px] flex items-center justify-center w-[40px] rounded-full text-white transition-colors duration-300;
+        }
+        .price {
+          @apply absolute top-[1rem] right-[1rem] flex flex-col text-white bg-blue-500 px-4 py-2 rounded-lg;
+        }
+        .tes {
+          margin-inline: auto;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+
+          gap: 1rem; /* Pastikan gap diatur dengan benar */
+        }
+        .grid-size {
+          @apply w-full md:w-[30%] lg:w-[25%];
+        }
+
+        .element-item {
+          @apply w-[50%] md:w-[auto];
+        }
+        .btn__active {
+          @apply bg-red text-white;
+        }
+      }
+    </style>
+    <!-- icon -->
+    <link rel="icon" href="/images/categories-02.jpg" />
+    <title>XGames</title>
+  </head>
+  <body class="">
+    <header
+      id="header"
+      class="w-full absolute top-[3rem] z-[30] transition-all duration-300 ease-in-out"
+    >
+      <nav
+        class="relative flex container justify-between h-[3rem] items-center"
+      >
+        <div>
+          <img
+            src="images/logo.png"
+            alt=""
+            class="w-[120px] lg:w-full"
+            id="logo"
+          />
+        </div>
+        <div
+          id="menu"
+          class="fixed md:relative top-[-100%] md:top-0 md:w-auto w-full left-0 py-[3.5rem] md:py-0 text-white transition-all duration-300 ease-in-out bg-[#0171F9] md:bg-inherit"
+        >
+          <ul
+            class="md:flex-row md:gap-x-[1px] lg:gap-x-2 text-white flex flex-col items-center gap-y-2 md:gap-x-[1rem]"
+          >
+            <li class="nav__link"><a href="/index.html">Home</a></li>
+            <li class="nav__link active"><a href="/shop.html">Our Shop</a></li>
+            <li class="nav__link">
+              <a href="/product-detail.html">Product Details</a>
+            </li>
+            <li class="nav__link"><a href="/contact.html">Contact Us</a></li>
+            <li>
+              <a
+                href=""
+                class="px-5 py-2 bg-red-400 rounded-full uppercase font-semibold"
+                >Sign In</a
+              >
+            </li>
+          </ul>
+          <div
+            id="close-menu"
+            class="absolute md:hidden top-[3rem] right-[1.5rem] text-[24px]"
+          >
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+        <div id="toggle-menu" class="md:hidden text-white text-[24px]">
+          <i class="ri-menu-3-line"></i>
+        </div>
+      </nav>
+    </header>
+    <section
+      id="shop"
+      class="bg-[url('/images/banner-bg.jpg')] pt-[200px] pb-[100px] rounded-b-[150px]"
+    >
+      <div class="container flex flex-col items-center gap-y-[1rem]">
+        <h3 class="uppercase text-[48px] text-white font-bold">Our Shop</h3>
+        <div class="text-white"><a href="/index.html">Home</a> > OurShop</div>
+      </div>
+    </section>
+    <section id="filter" class="mt-[8rem]">
+      <div class="container">
+        <div class="flex justify-center mb-[6rem] filter-button-group">
+          <ul class="flex flex-wrap gap-[2rem] justify-center">
+            <li>
+              <button data-filter="*" class="btn__link btn__active">
+                Show All
+              </button>
+            </li>
+            <li>
+              <button data-filter=".adventure" class="btn__link adventure">
+                Adventure
+              </button>
+            </li>
+            <li>
+              <button data-filter=".strategy" class="btn__link strategy">
+                Strategy
+              </button>
+            </li>
+            <li>
+              <button data-filter=".racing" class="btn__link racing">
+                Racing
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mx-auto">
+          <div class="tes">
+            <div class="element-item relative adventure">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-01.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative adventure">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-02.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative strategy">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-03.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative strategy">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-04.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative strategy">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-03.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative racing">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-04.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative racing">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-01.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative adventure">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-04.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative adventure">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-02.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative adventure">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-03.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative racing">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-02.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="element-item relative racing">
+              <a href="#" class="trending__card">
+                <div class="p-2">
+                  <div class="price">
+                    <em>$28</em>
+                    <span class="text-[17px] font-semibold">$20</span>
+                  </div>
+                  <img
+                    src="/images/trending-03.jpg"
+                    alt=""
+                    class="rounded-[25px] w-full"
+                  />
+                  <div class="relative p-6">
+                    <span class="text-gray-500 text-[14px]">Action</span>
+                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
+                    <div class="trending__shop">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer
+      id="footer"
+      class="mt-[6rem] bg-[url('/images/footer-bg.jpg')] rounded-t-[50px] pt-[2rem] pb-[6rem]"
+    >
+      <div class="container">
+        <h6 class="text-center text-white">
+          Copyright © 2024 XHouse. All rights reserved
+        </h6>
+      </div>
+    </footer>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
+      integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/js/scrollreveal.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        var $grid = $(".tes").isotope({
+          itemSelector: ".element-item",
+          layoutMode: "masonry",
+          getSortData: {
+            name: ".name",
+            category: "[data-category]",
+          },
+          masonry: {
+            columnWidht: ".grid-size",
+          },
+          // layout mode options
+        });
+
+        $(".filter-button-group").on("click", "button", function () {
+          //   console.log("object");
+          var filterValue = $(this).attr("data-filter");
+          $grid.isotope({ filter: filterValue });
+        });
+      });
+    </script>
+  </body>
+</html>

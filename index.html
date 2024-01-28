@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Remix Icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style type="text/tailwindcss">
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
+      @layer utilities {
+        .container {
+          @apply md:max-w-[1150] lg:max-w-[1300px]  mx-auto lg:px-[2rem] 2xl:p-0  px-[1rem];
+        }
+        img {
+          @apply block h-auto max-w-[100%];
+        }
+        * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: "Poppins", sans-serif;
+          /* scroll-behavior: smooth; */
+        }
+
+        .nav__link {
+          @apply md:px-3 lg:px-5  py-2 transition-all duration-300 font-light text-[15px];
+        }
+        .nav__link:hover,
+        .active {
+          @apply rounded-full bg-blue-500 px-5;
+        }
+
+        .show-menu {
+          @apply top-0;
+        }
+
+        .container__card {
+          @apply flex flex-col  py-8 items-center shadow-lg rounded-[25px] mt-[-80px] bg-white gap-y-5;
+        }
+
+        .container__card h6 {
+          @apply text-[16px] font-bold uppercase;
+        }
+
+        .container__card:hover .feature__image {
+          @apply bg-red-400;
+        }
+        .container__card:hover {
+          @apply cursor-pointer;
+        }
+
+        .feature__image {
+          @apply px-5 py-5 bg-blue-600 rounded-full  transition-colors duration-300 ease-in-out;
+        }
+
+        .small__title {
+          @apply text-[15px]  font-semibold uppercase text-[#ee626b];
+        }
+        .big__title {
+          @apply text-[36px]  font-bold capitalize mt-[24px];
+        }
+        .bg-red {
+          @apply bg-[#ee626b];
+        }
+
+        .trending__card {
+          @apply bg-gray-200 rounded-[25px] relative;
+        }
+
+        .trending__card:hover .trending__shop {
+          @apply bg-blue-600;
+        }
+        .trending__card:hover div h3 {
+          @apply text-blue-600;
+        }
+        .trending__card:hover {
+          @apply cursor-pointer;
+        }
+        .trending__card em {
+          text-decoration: line-through;
+          font-style: normal;
+          font-size: 14px;
+        }
+        .trending__shop {
+          @apply absolute right-6 bottom-6 bg-red h-[40px] text-[20px] flex items-center justify-center w-[40px] rounded-full text-white transition-colors duration-300;
+        }
+        .cta::after {
+          @apply bg-[url('/images/cta-bg.jpg')] w-[510px] h-[510px] top-0 bg-black content-[''] top-0 absolute left-[50%] translate-x-[-275px] z-[-1] rounded-[25px] hidden md:block;
+        }
+        .price {
+          @apply absolute top-[1rem] right-[1rem] flex flex-col text-white bg-blue-500 px-4 py-2 rounded-lg;
+        }
+      }
+    </style>
+    <!-- icon -->
+    <link rel="icon" href="/images/categories-02.jpg" />
+    <title>XGames</title>
+  </head>
+  <body class="">
+    <header
+      id="header"
+      class="w-full absolute top-[3rem] z-[30] transition-all duration-300 ease-in-out"
+    >
+      <nav
+        class="relative flex container justify-between h-[3rem] items-center"
+      >
+        <div>
+          <img
+            src="images/logo.png"
+            alt=""
+            class="w-[120px] lg:w-full"
+            id="logo"
+          />
+        </div>
+        <div
+          id="menu"
+          class="fixed md:relative top-[-100%] md:top-0 md:w-auto w-full left-0 py-[3.5rem] md:py-0 text-white transition-all duration-300 ease-in-out bg-[#0171F9] md:bg-inherit"
+        >
+          <ul
+            class="md:flex-row md:gap-x-[1px] lg:gap-x-2 text-white flex flex-col items-center gap-y-2 md:gap-x-[1rem]"
+          >
+            <li class="nav__link active"><a href="/index.html">Home</a></li>
+            <li class="nav__link"><a href="/shop.html">Our Shop</a></li>
+            <li class="nav__link">
+              <a href="/product-detail.html">Product Details</a>
+            </li>
+            <li class="nav__link"><a href="/contact.html">Contact Us</a></li>
+            <li>
+              <a
+                href=""
+                class="px-5 py-2 bg-red-400 rounded-full uppercase font-semibold"
+                >Sign In</a
+              >
+            </li>
+          </ul>
+          <div
+            id="close-menu"
+            class="absolute md:hidden top-[3rem] right-[1.5rem] text-[24px]"
+          >
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+        <div id="toggle-menu" class="md:hidden text-white text-[24px]">
+          <i class="ri-menu-3-line"></i>
+        </div>
+      </nav>
+    </header>
+    <section
+      id="hero"
+      class="bg-[url('/images/banner-bg.jpg')] py-[225px] lg:min-h-[104vh] bg-center bg-no-repeat bg-cover rounded-b-[150px] flex items-center"
+    >
+      <div
+        class="container grid grid-cols-1 md:grid-cols-2 gap-y-[3rem] md:gap-x-2 items-center justify-center"
+      >
+        <div class="flex flex-col gap-y-12">
+          <div class="">
+            <h6
+              class="text-center md:text-start text-center text-white text-[20px] font-[500] tracking-[.5px] title__hero1"
+            >
+              WELCOME TO XGAMES
+            </h6>
+            <h2
+              class="text-center md:text-start text-[48px] relative font-bold text-white title__hero2"
+            >
+              BEST GAMING SITE EVER!
+              <img
+                src="/images/caption-dec.png"
+                alt=""
+                class="absolute left-[130px] bottom-1"
+              />
+            </h2>
+          </div>
+          <p
+            class="text-center md:text-start text-white text-[14px] leading-7 description__hero"
+          >
+            LUGX Gaming is free Bootstrap 5 HTML CSS website template for your
+            gaming websites. You can download and use this layout for commercial
+            purposes. Please tell your friends about TemplateMo.
+          </p>
+          <div class="w-full md:w-[70%] relative form__hero">
+            <input
+              type="text"
+              name=""
+              placeholder="Type Something"
+              id=""
+              class="px-6 h-[50px] rounded-full w-full"
+            />
+            <button
+              class="uppercase font-[500] text-[15px] text-white px-6 h-[50px] rounded-full absolute right-0 top-0 bg-red-400"
+            >
+              Search Now
+            </button>
+          </div>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <div class="relative img__hero">
+            <img src="/images/banner-image.jpg" alt="" class="rounded-[25px]" />
+            <span
+              class="absolute text-white w-[100px] h-[100px] flex items-center justify-center bottom-[-25px] left-[-25px] rounded-full bg-red-400 text-[28px] font-semibold"
+              >-40%</span
+            >
+            <span
+              class="absolute text-white px-4 flex items-center justify-center top-[1rem] right-[1rem] rounded-full bg-blue-500 text-[22px] font-bold"
+              >$22</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="feature">
+      <div
+        class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-[100px] gap-x-10"
+      >
+        <div class="container__card">
+          <div class="feature__image">
+            <img src="images/featured-01.png" alt="" class="" />
+          </div>
+          <h6>Free Storage</h6>
+        </div>
+        <div class="container__card">
+          <div class="feature__image">
+            <img src="images/featured-02.png" alt="" class="" />
+          </div>
+          <h6>User Mode</h6>
+        </div>
+        <div class="container__card">
+          <div class="feature__image">
+            <img src="images/featured-03.png" alt="" class="" />
+          </div>
+          <h6>Replay Mode</h6>
+        </div>
+        <div class="container__card">
+          <div class="feature__image">
+            <img src="images/featured-04.png" alt="" class="" />
+          </div>
+          <h6>Easy Layout</h6>
+        </div>
+      </div>
+    </section>
+
+    <section id="trending">
+      <div class="container mt-[6rem]">
+        <!-- header -->
+        <div class="mb-[70px]">
+          <h6 class="small__title">Trending</h6>
+          <div class="flex justify-between items-center">
+            <h2 class="big__title">Trending Game</h2>
+            <a
+              href="#"
+              class="px-7 font-semibold py-3 bg-red text-white rounded-full hover:bg-blue-600 transition-colors duration-300 hidden md:block"
+              >View All</a
+            >
+          </div>
+        </div>
+        <!-- card -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[20px]">
+          <a href="#" class="trending__card">
+            <div class="price">
+              <em>$28</em>
+              <span class="text-[17px] font-semibold">$20</span>
+            </div>
+            <img
+              src="/images/trending-01.jpg"
+              alt=""
+              class="rounded-[25px] w-full"
+            />
+            <div class="relative p-6">
+              <span class="text-gray-500 text-[14px]">Action</span>
+              <h3 class="font-semibold mt-2">Assasin Creed</h3>
+              <div class="trending__shop">
+                <i class="ri-shopping-bag-fill"></i>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="trending__card">
+            <div class="price">
+              <span class="text-[17px] font-semibold">$20</span>
+            </div>
+            <img
+              src="/images/trending-02.jpg"
+              alt=""
+              class="rounded-[25px] w-full"
+            />
+            <div class="relative p-6">
+              <span
+                class="text-gray-500 text-[14px]"
+                class="text-gray-500 text-[14px]"
+                >Action</span
+              >
+              <h3 class="font-semibold mt-2">Assasin Creed</h3>
+              <div class="trending__shop">
+                <i class="ri-shopping-bag-fill"></i>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="trending__card">
+            <div class="price">
+              <em>$64</em>
+              <span class="text-[17px] font-semibold">$44</span>
+            </div>
+            <img
+              src="/images/trending-03.jpg"
+              alt=""
+              class="rounded-[25px] w-full"
+            />
+            <div class="relative p-6">
+              <span
+                class="text-gray-500 text-[14px]"
+                class="text-gray-500 text-[14px]"
+                >Action</span
+              >
+              <h3 class="font-semibold mt-2">Assasin Creed</h3>
+              <div class="trending__shop">
+                <i class="ri-shopping-bag-fill"></i>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="trending__card">
+            <div class="price">
+              <span class="text-[17px] font-semibold">$32</span>
+            </div>
+            <img
+              src="/images/trending-04.jpg"
+              alt=""
+              class="rounded-[25px] w-full"
+            />
+            <div class="relative p-6">
+              <span
+                class="text-gray-500 text-[14px]"
+                class="text-gray-500 text-[14px]"
+                >Action</span
+              >
+              <h3 class="font-semibold mt-2">Assasin Creed</h3>
+              <div class="trending__shop">
+                <i class="ri-shopping-bag-fill"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="most" class="mt-[6rem] bg-gray-100 py-[6rem] rounded-[90px]">
+      <div class="container">
+        <!-- header -->
+        <div class="mb-[70px]">
+          <h6 class="small__title text-center md:text-start">Top Games</h6>
+          <div class="flex justify-center md:justify-between items-center">
+            <h2 class="big__title">Most Played</h2>
+            <a
+              href="#"
+              class="px-7 font-semibold py-3 bg-red text-white rounded-full hover:bg-blue-600 transition-colors duration-300 hidden md:block"
+              >View All</a
+            >
+          </div>
+        </div>
+        <!-- Card -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-2 lg:md:grid-cols-6 gap-x-[1.5rem] gap-y-[2.5rem]"
+        >
+          <div class="bg-white rounded-[25px] most__card">
+            <img
+              src="/images/top-game-01.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+            <div class="pt-5 pb-10 flex flex-col items-center relative">
+              <span class="text-gray-500 text-[14px]">Adventure</span>
+              <h3 class="font-semibold mt-2">Assasin Creed</h3>
+              <a
+                href="#"
+                class="px-4 py-2 font-semibold text-[15px] bg-[#ee626b] text-white rounded-full absolute bottom-[-17%]"
+                >Explore</a
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-[25px] most__card">
+            <img
+              src="/images/top-game-02.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+            <div class="pt-5 pb-10 flex flex-col items-center relative">
+              <span class="text-gray-500 text-[14px]">Adventure</span>
+              <h3 class="font-semibold mt-2">Assasin Creed</h3>
+              <a
+                href="#"
+                class="px-4 py-2 font-semibold text-[15px] bg-[#ee626b] text-white rounded-full absolute bottom-[-17%]"
+                >Explore</a
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-[25px] most__card">
+            <img
+              src="/images/top-game-03.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+            <div class="pt-5 pb-10 flex flex-col items-center relative">
+              <span class="text-gray-500 text-[14px]">Adventure</span>
+              <h3 class="font-semibold mt-2">Assasin Creed</h3>
+              <a
+                href="#"
+                class="px-4 py-2 font-semibold text-[15px] bg-[#ee626b] text-white rounded-full absolute bottom-[-17%]"
+                >Explore</a
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-[25px] most__card">
+            <img
+              src="/images/top-game-04.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+            <div class="pt-5 pb-10 flex flex-col items-center relative">
+              <span class="text-gray-500 text-[14px]">Adventure</span>
+              <h3 class="font-semibold mt-2">Assasin Creed</h3>
+              <a
+                href="#"
+                class="px-4 py-2 font-semibold text-[15px] bg-[#ee626b] text-white rounded-full absolute bottom-[-17%]"
+                >Explore</a
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-[25px] most__card">
+            <img
+              src="/images/top-game-05.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+            <div class="pt-5 pb-10 flex flex-col items-center relative">
+              <span class="text-gray-500 text-[14px]">Adventure</span>
+              <h3 class="font-semibold mt-2">Assasin Creed</h3>
+              <a
+                href="#"
+                class="px-4 py-2 font-semibold text-[15px] bg-[#ee626b] text-white rounded-full absolute bottom-[-17%]"
+                >Explore</a
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-[25px] most__card">
+            <img
+              src="/images/top-game-06.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+            <div class="pt-5 pb-10 flex flex-col items-center relative">
+              <span class="text-gray-500 text-[14px]">Adventure</span>
+              <h3 class="font-semibold mt-2">Assasin Creed</h3>
+              <a
+                href="#"
+                class="px-4 py-2 font-semibold text-[15px] bg-[#ee626b] text-white rounded-full absolute bottom-[-17%]"
+                >Explore</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories " class="mt-[6rem]">
+      <div class="container">
+        <!-- title -->
+        <div class="mb-[3rem]">
+          <h6 class="small__title text-center">Categories</h6>
+          <h2 class="big__title text-center">Top Categories</h2>
+        </div>
+        <!-- konten -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-[1.5rem]"
+        >
+          <div class="w-full bg-blue-600 rounded-[25px]">
+            <div class="p-[22px]">
+              <h6 class="text-center font-semibold text-[17px] text-white">
+                Action
+              </h6>
+            </div>
+            <img
+              src="/images/top-game-01.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+          </div>
+          <div class="w-full bg-blue-600 rounded-[25px]">
+            <div class="p-[22px]">
+              <h6 class="text-center font-semibold text-[17px] text-white">
+                Action
+              </h6>
+            </div>
+            <img
+              src="/images/top-game-02.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+          </div>
+          <div class="w-full bg-blue-600 rounded-[25px]">
+            <div class="p-[22px]">
+              <h6 class="text-center font-semibold text-[17px] text-white">
+                Action
+              </h6>
+            </div>
+            <img
+              src="/images/top-game-03.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+          </div>
+          <div class="w-full bg-blue-600 rounded-[25px]">
+            <div class="p-[22px]">
+              <h6 class="text-center font-semibold text-[17px] text-white">
+                Action
+              </h6>
+            </div>
+            <img
+              src="/images/top-game-04.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+          </div>
+          <div class="w-full bg-blue-600 rounded-[25px]">
+            <div class="p-[22px]">
+              <h6 class="text-center font-semibold text-[17px] text-white">
+                Action
+              </h6>
+            </div>
+            <img
+              src="/images/top-game-05.jpg"
+              alt=""
+              class="w-full rounded-[25px]"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="mt-[6rem]">
+      <div
+        class="container grid grid-cols-1 md:grid-cols-12 cta relative z-[10] min-h-[68vh] gap-y-[2rem]"
+      >
+        <!-- shop -->
+        <div class="md:col-start-1 md:col-span-5 flex items-end">
+          <div
+            class="px-[4rem] py-[5rem] bg-gray-100 rounded-[25px] flex flex-col gap-y-[3rem]"
+          >
+            <div>
+              <h6 class="small__title">Our shop</h6>
+              <h2 class="big__title">
+                Go Pre-Order Buy & Get Best Prices For You!
+              </h2>
+            </div>
+            <p>
+              Lorem ipsum dolor consectetur adipiscing, sed do eiusmod tempor
+              incididunt.
+            </p>
+            <div>
+              <a
+                href=""
+                class="font-semibold text-white bg-red px-8 py-4 text-[13px] rounded-full"
+                >SHOP NOW</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- letter -->
+        <div class="md:col-span-5 md:col-start-8 flex items-end">
+          <div
+            class="px-[4rem] py-[5rem] bg-gray-100 rounded-[25px] flex flex-col gap-y-[3rem]"
+          >
+            <div>
+              <h6 class="small__title">NEWSLETTER</h6>
+              <h2 class="big__title">
+                Get Up To $100 Off Just Buy Subscribe Newsletter!
+              </h2>
+            </div>
+            <div class="relative">
+              <input
+                type="text"
+                class="h-[50px] w-[50px] w-full rounded-full px-4"
+                placeholder="Your Email"
+              />
+              <a
+                href=""
+                class="font-semibold text-white bg-red px-8 py-4 text-[13px] rounded-full absolute right-0"
+                >SHOP NOW</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      id="footer"
+      class="mt-[6rem] bg-[url('/images/footer-bg.jpg')] rounded-t-full pt-[2rem] pb-[6rem]"
+    >
+      <div class="container">
+        <h6 class="text-center text-white">
+          Copyright © 2024 XHouse. All rights reserved
+        </h6>
+      </div>
+    </footer>
+
+    <script src="/js/scrollreveal.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
