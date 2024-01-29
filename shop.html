@@ -72,21 +72,18 @@
           @apply cursor-pointer;
         }
         .trending__card em {
-          text-decoration: line-through;
-          font-style: normal;
-          font-size: 14px;
+          @apply not-italic line-through text-[12px];
         }
         .trending__shop {
           @apply absolute right-6 bottom-6 bg-red h-[40px] text-[20px] flex items-center justify-center w-[40px] rounded-full text-white transition-colors duration-300;
         }
         .price {
-          @apply absolute top-[1rem] right-[1rem] flex flex-col text-white bg-blue-500 px-4 py-2 rounded-lg;
+          @apply absolute top-[1rem] right-[1rem] flex flex-col text-white bg-blue-500 px-2 py-1 md:px-4 md:py-2 rounded-lg;
         }
         .tes {
           margin-inline: auto;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-
           gap: 1rem; /* Pastikan gap diatur dengan benar */
         }
         .grid-size {
@@ -94,7 +91,7 @@
         }
 
         .element-item {
-          @apply w-[50%] md:w-[auto];
+          @apply w-[50%]  lg:w-[25%];
         }
         .btn__active {
           @apply bg-red text-white;
@@ -190,25 +187,32 @@
           </ul>
         </div>
 
-        <div class="mx-auto">
+        <div class="">
           <div class="tes">
             <div class="element-item relative adventure">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-01.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-01.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -217,20 +221,27 @@
             <div class="element-item relative adventure">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-02.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-02.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -239,20 +250,27 @@
             <div class="element-item relative strategy">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-03.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-03.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -261,20 +279,27 @@
             <div class="element-item relative strategy">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-04.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-02.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -283,20 +308,27 @@
             <div class="element-item relative strategy">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-03.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-03.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -305,20 +337,27 @@
             <div class="element-item relative racing">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-04.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-04.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -327,20 +366,27 @@
             <div class="element-item relative racing">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-01.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-01.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -349,20 +395,27 @@
             <div class="element-item relative adventure">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-04.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-04.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -371,20 +424,27 @@
             <div class="element-item relative adventure">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-02.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-02.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -393,20 +453,27 @@
             <div class="element-item relative adventure">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-03.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-03.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -415,20 +482,27 @@
             <div class="element-item relative racing">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-02.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-02.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -437,20 +511,27 @@
             <div class="element-item relative racing">
               <a href="#" class="trending__card">
                 <div class="p-2">
-                  <div class="price">
-                    <em>$28</em>
-                    <span class="text-[17px] font-semibold">$20</span>
-                  </div>
-                  <img
-                    src="/images/trending-03.jpg"
-                    alt=""
-                    class="rounded-[25px] w-full"
-                  />
-                  <div class="relative p-6">
-                    <span class="text-gray-500 text-[14px]">Action</span>
-                    <h3 class="font-semibold mt-2">Assasin Creed</h3>
-                    <div class="trending__shop">
-                      <i class="ri-shopping-bag-fill"></i>
+                  <div class="bg-gray-100 rounded-[25px]">
+                    <div class="price">
+                      <em>$28</em>
+                      <span class="text-[14px] md:text-[17px] font-semibold"
+                        >$20</span
+                      >
+                    </div>
+                    <img
+                      src="/images/trending-03.jpg"
+                      alt=""
+                      class="rounded-[25px] w-full"
+                    />
+
+                    <div class="relative p-4 md:p-6">
+                      <span class="text-gray-500 text-[14px]">Action</span>
+                      <h3 class="font-semibold mt-2 max-w-[50%] md:w-full">
+                        Assasin Creed
+                      </h3>
+                      <div class="trending__shop">
+                        <i class="ri-shopping-bag-fill"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
